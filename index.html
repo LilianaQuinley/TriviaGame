@@ -10,38 +10,26 @@
 
 </head>
 <body>
-
-
     <div class="container">
-
-        <div id="quiz"></div>
-        <button id="submit">Submit Quiz</button>
-        <div id="results"></div>
-
-        <div class="quiz-container">
-            <div id="quiz"></div>
-        </div>
-
-        <div id="Time"></div>
-        <h2>Time Remaining: <span id="time-left"></span> </h2>
-        <div class="alert alert-success"> </div>
-
-        <br>
-        <div id="slide-holder"></div>
-        
-    </div>
-            <div id="results"></div>
-
-
+       
         <div class="jumbotron">
 
             <h1 class="display-4">Spanish Trivia Game!</h1>
-            <h2>Bienvenido!!</h2>
+            <h2 id="time-left">Bienvenido!!</h2>
             <hr class="my-4">
        
-            <p >
-                <a class="btn btn-primary btn-lg" href="#" role="button">START / COMENZAR</a>
+            <p id="question" >
+                <a class="btn btn-primary btn-lg" role="button" id="startBtn">START / COMENZAR</a>
             </p>
+            <div id="quiz"></div>
+            <div id="results">
+                <h2>Correct Answers: <span id="correct"></span></h2>
+                <h2>Incorrect Answers:<span id="incorrect"></span> </h2>
+                <h2>Unanswered:<span id="NoAnswer"></span></h2>
+
+
+
+            </div>
         </div>
     </div>
 
