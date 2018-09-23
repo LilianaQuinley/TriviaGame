@@ -28,7 +28,6 @@ $(document).ready(function () {
 
     //  The stop function
     function stop() {
-
       //  Clears our intervalId
       //  We just pass the name of the interval
       //  to the clearInterval function.
@@ -43,12 +42,11 @@ $(document).ready(function () {
     //     resultado.hide(1000);
     // })
     // pagination
-    var previousButton = document.getElementById("previous") 
-    var nextButton = document.getElementById("next")
+
 
     var quizContainer = document.getElementById("quiz")
     var resultsContainer = document.getElementById("results")
-    var submitButton = document.getElementById("submit")
+
     let currentSlide = 0;
     var myQuestions = [
         {
@@ -85,50 +83,102 @@ $(document).ready(function () {
 
 
     /////
+
+    
+    // Variable showImage will hold the setInterval when we start the slideshow
+    var showImage;
+    
+    // Count will keep track of the index of the currently displaying picture.
+    var count = 5;
+    
+    
+    // This function will replace display whatever image it's given
+    // in the 'src' attribute of the img tag.
     function showSlide(n) {
-        console.log("Printing out my slides")
-        console.log(slides)
-        console.log("Done printing out my slides")
-        slides[currentSlide].classList.remove('active-slide');
-        slides[n].classList.add('active-slide');
-        currentSlide = n;
-        if(currentSlide===0){
-          previousButton.style.display = 'none';
-        }
-        else{
-          previousButton.style.display = 'inline-block';
-        }
-        if(currentSlide===slides.length-1){
-          nextButton.style.display = 'none';
-          submitButton.style.display = 'inline-block';
-        }
-        else{
-          nextButton.style.display = 'inline-block';
-          submitButton.style.display = 'none';
-        }
+      $("#image-holder").html(myQuestions[count]);
+    }
+    
+    function nextImage() {
+      //  TODO: Increment the count by 1.
+      count++;
+    
+      // TODO: Show the loading gif in the "image-holder" div.
+      $("#slide-holder").html(myQuestions[count]);
+    
+      // TODO: Use a setTimeout to run displayImage after 1 second.
+      setTimeout(displayImage, 5000);
+    
+      // TODO: If the count is the same as the length of the image array, reset the count to 0.
+      if (count === myQuestions.length) {
+        count = 0;
       }
-      buildQuiz();
-      var slides = document.querySelectorAll(".slide");
-      showSlide(0);
-    ///////
+    }
+    
+    function startSlideshow() {
+    
+      // TODO: Use showImage to hold the setInterval to run nextImage.
+      showImage = setInterval(nextImage, 5000);
+    
+    }
+    
+    function stopSlideshow() {
+    
+      // TODO: Put our clearInterval here:
+      clearInterval(showImage);
+    
+    }
+    
+    // This will run the display image function as soon as the page loads.
+    showSlide();
+    
 
-    function showNextSlide() {
-        showSlide(currentSlide + 1);
-      }
-      
-      function showPreviousSlide() {
-        showSlide(currentSlide - 1);
-      }
-      
-      previousButton.addEventListener("click", showPreviousSlide);
-      nextButton.addEventListener("click", showNextSlide);
 
-      //////
+////////////
+
+    // function showSlide(n) {
+    //     console.log("Printing out my slides")
+    //     console.log(slides)
+    //     console.log("Done printing out my slides")
+    //     slides[currentSlide].classList.remove('active-slide');
+    //     slides[n].classList.add('active-slide');
+    //     currentSlide = n;
+    //     if(currentSlide===0){
+    //       previousButton.style.display = 'none';
+    //     }
+    //     else{
+    //       previousButton.style.display = 'inline-block';
+    //     }
+    //     if(currentSlide===slides.length-1){
+    //       nextButton.style.display = 'none';
+    //       submitButton.style.display = 'inline-block';
+    //     }
+    //     else{
+    //       nextButton.style.display = 'inline-block';
+    //       submitButton.style.display = 'none';
+    //     }
+    //   }
+    //   buildQuiz();
+    //   var slides = document.querySelectorAll(".slide");
+    //   showSlide(0);
+    // ///////
+
+    // function showNextSlide() {
+    //     showSlide(currentSlide + 1);
+    //   }
+      
+    //   function showPreviousSlide() {
+    //     showSlide(currentSlide - 1);
+    //   }
+      
+    //   previousButton.addEventListener("click", showPreviousSlide);
+    //   nextButton.addEventListener("click", showNextSlide);
+
+    //   //////
 
     
   
-      // on submit, show results
-      $("#submitButton").click(showResults);
+    //   // on submit, show results
+    //   $("#submitButton").click(showResults);
       
     
       function buildQuiz(){
