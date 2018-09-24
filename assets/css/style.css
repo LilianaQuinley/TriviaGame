@@ -1,18 +1,42 @@
 body{
-    background-color: red;
     background-image: linear-gradient(blue, yellow);
     text-align: center;
     color: red;
     font-family: "Times New Roman", Times, serif;
     
 }
+.jumbotron{
+  margin-top: 25px;
+}
 
-.quiz-container{
-  position: relative;
-  height: 200px;
-  margin-top: 40px;
+#startBtn{
+  color: rgb(48, 25, 25);
+}
+
+#doneBtn{
+  margin-top: 25px;
+  color: rgb(48, 25, 25);
+}
+
+.question {
+  font-size: 30px;
+}
+
+#quiz{
+  background-image: linear-gradient(rgb(0, 183, 255), yellow);
+  color: rgb(93, 22, 22);
+  font-size: 20px;
 }
 
 h2{
-  color:black;
+  color:green;
+}
+
+#results{
+  background-image: linear-gradient(rgb(0, 183, 255), yellow);
+}
+
+p {
+  color: rgb(93, 22, 22);
+  font-size: 30px;
 }

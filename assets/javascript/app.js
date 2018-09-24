@@ -1,24 +1,28 @@
 $(document).ready(function () {
 
   $("#results").hide()
+  $("#doneBtn").hide()
 
   $("#startBtn").click(function () {  
     console.log("startBtn");
-    number = 5;
+    number = 25;
     $("#time-left").html("Time Remaining: " + number);
     run();
     $("#question").hide();
     buildQuiz();
-    var r= $('<input id="done" class="btn btn-primary btn-lg" type="button" value="DONE"/>');
-    $("#quiz").append(r);
-    $("#done").click(function(){
+    $("#doneBtn").show()
+
+    $("#doneBtn").click(function(){
       console.log("done")
+      $("#doneBtn").hide()
+      stop()
       showResults();
+
     });
 
   })
   
-  var number = 5;
+  var number = 25;
   //  Variable that will hold our interval ID when we execute
   //  the "run" function
   var intervalId;
@@ -40,6 +44,7 @@ $(document).ready(function () {
       stop();
       //  Alert the user that time is up.
       showResults();
+      $("#doneBtn").hide();
     }
   }
 
@@ -58,6 +63,26 @@ $(document).ready(function () {
 
   let currentSlide = 0;
   var myQuestions = [
+    {
+      question: "Translate.. White and Red",
+      answers: {
+        a: "Verde y Naranja",
+        b: "Blanco y Amarillo",
+        c: "Blanco y Azul",
+        d: "Blanco y  Rojo"
+      },
+      correctAnswer: "d"
+    },
+    {
+      question: "Translate.. Apples, Strawberries, Bananas",
+      answers: {
+        a: "Manzanas, Fresas, Bananos",
+        b: "Peras, Uvas, Bananos",
+        c: "Tomates, Peras, Bananos",
+        d: "Manzanas, Cebollas, Bananos"
+      },
+      correctAnswer: "a"
+    },
       {
         question: "Translate.. Hi, how are you?",
         answers: {
