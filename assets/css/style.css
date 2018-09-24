@@ -18,6 +18,10 @@ body{
   color: rgb(48, 25, 25);
 }
 
+#playAgain{
+  color: rgb(48, 25, 25);
+}
+
 .question {
   font-size: 30px;
 }

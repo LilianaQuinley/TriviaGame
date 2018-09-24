@@ -2,6 +2,7 @@ $(document).ready(function () {
 
   $("#results").hide()
   $("#doneBtn").hide()
+  $("#playAgain").hide()
 
   $("#startBtn").click(function () {  
     console.log("startBtn");
@@ -17,11 +18,28 @@ $(document).ready(function () {
       $("#doneBtn").hide()
       stop()
       showResults();
+      $("#playAgain").show()
+
+    $("#playAgain").click(function(){
+      console.log("AGAIN")
+      number = 25;
+      $("#time-left").html("Time Remaining: " + number);
+      run();
+      $("#results").hide();
+      buildQuiz();
+      $("#quiz").show();
+      $("#doneBtn").show();
+      $("#playAgain").hide();
+
+        
+      });
 
     });
 
-  })
-  
+    
+  });
+
+ 
   var number = 25;
   //  Variable that will hold our interval ID when we execute
   //  the "run" function
@@ -45,6 +63,7 @@ $(document).ready(function () {
       //  Alert the user that time is up.
       showResults();
       $("#doneBtn").hide();
+      $("#playAgain").show()
     }
   }
 
@@ -203,6 +222,9 @@ $(document).ready(function () {
     
     }
   
+
+ 
+
       
     });
     
